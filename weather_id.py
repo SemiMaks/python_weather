@@ -5,11 +5,15 @@
 #
 # pip install -r requirements.txt
 # https://habr.com/ru/post/315264/
+#
+# city: ['Moscow (RU)', 'Moscow (RU)']
+# city_id= 524901
 
 import requests
-s_city = "Petersburg,RU"
+from tok import tok
+s_city = "Moscow,RU"
 city_id = 0
-appid = "буквенно-цифровой APPID"
+appid = tok
 try:
     res = requests.get("http://api.openweathermap.org/data/2.5/find",
                  params={'q': s_city, 'type': 'like', 'units': 'metric', 'APPID': appid})
