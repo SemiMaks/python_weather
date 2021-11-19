@@ -10,13 +10,15 @@
 # city_id= 524901
 
 import requests
-from tok import tok
+
+from token import token
+
 s_city = "Moscow,RU"
 city_id = 0
-appid = tok
+appid = token
 try:
     res = requests.get("http://api.openweathermap.org/data/2.5/find",
-                 params={'q': s_city, 'type': 'like', 'units': 'metric', 'APPID': appid})
+                       params={'q': s_city, 'type': 'like', 'units': 'metric', 'APPID': appid})
     data = res.json()
     cities = ["{} ({})".format(d['name'], d['sys']['country'])
               for d in data['list']]
